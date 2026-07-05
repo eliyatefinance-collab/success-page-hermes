@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Payment Successful - Eliyate Finance</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0d1117;color:white;font-family:Arial;display:flex;align-items:center;justify-content:center;min-height:100vh}
+.card{background:#161b22;padding:30px;border-radius:16px;max-width:420px;width:90%;border:1px solid #30363d;text-align:center}
+h1{color:#00c853;font-size:24px;margin-bottom:8px}
+p{color:#8b949e;font-size:14px;margin:15px 0;line-height:1.5}
+.btn{display:inline-block;padding:14px 28px;background:#f0c040;color:#0d1117;border-radius:8px;text-decoration:none;font-weight:bold;font-size:16px;margin:10px 0}
+.btn:hover{background:#d4a800}
+.footer{color:#484f58;font-size:11px;margin-top:20px}
+</style>
+</head>
+<body>
+<div class="card" id="app">
+ <h1>Payment Successful! </h1>
+ <p>Your order has been confirmed.</p>
+ <p>Click the button below to activate your account on Telegram:</p>
+ <a class="btn" id="tgBtn" href="https://t.me/EliyatefinanceBot" target="_blank">
+   Activate on Telegram
+ </a>
+ <p style="font-size:12px;color:#8b949e">This will open our bot on Telegram. Click START to automatically activate your premium access.</p>
+ <div class="footer">Eliyate Finance - Smart Trading for Beginners</div>
+</div>
+<script>
+const params = new URLSearchParams(window.location.search);
+const sid = params.get('session_id');
+const btn = document.getElementById('tgBtn');
+if (sid) {
+  btn.href = 'https://t.me/EliyatefinanceBot?start=' + sid;
+}
+</script>
+</body>
+</html>
